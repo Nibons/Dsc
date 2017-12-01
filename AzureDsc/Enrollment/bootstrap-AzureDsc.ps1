@@ -7,6 +7,9 @@ Process{
     #set up some splats
     $sessionParams = @{Computername = $computername}
     if($credential){$sessionParams.Add('Credential',$credential)}
+    if($computername.count -eq 1 -and $computername -eq $env:computername){
+        $sessionParams
+    }
 
     #build the metaConfigurations
     . "$psscriptroot\build-DscMetaConfiguration.ps1" -computername $computername
