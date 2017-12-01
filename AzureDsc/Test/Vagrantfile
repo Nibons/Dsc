@@ -6,6 +6,6 @@ Vagrant.configure("2") do |config|
   end
   
   config.vm.synced_folder "./../Enrollment","C:/Dsc_Enrollment"
-  config.vm.provision "shell", inline: "msiexec C:/Dsc_Enrollment/WMF_5.1.msu -q" #installs PSv5.1
+  config.vm.provision "shell", inline: "wusa.exe C:/Dsc_Enrollment/WMF_5.1 .msu /quiet" #installs PSv5.1
   #config.vm.provision "shell", inline: "C:/Dsc_Enrollment/bootstrap-AzureDsc.ps1"
 end
